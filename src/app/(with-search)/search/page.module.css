@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.container > h4 > strong {
+  color: #e007ad;
+  font-size: 20px;
+  text-decoration: underline;
+}
