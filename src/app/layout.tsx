@@ -21,7 +21,9 @@ export default function RootLayout({
             <Link href={"/"}>👕 Shopping Mall 👔</Link>
           </header>
           <main>{children}</main>
-          <footer>하단</footer>
+          <footer>
+            Copyright © 2025 <b>fakeshop</b>. All rights reserved.
+          </footer>
         </div>
       </body>
     </html>

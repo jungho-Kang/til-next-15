@@ -1,27 +1,38 @@
 import { GoodDataType } from "@/types/types";
 import styles from "@/app/good/[id]/page.module.css";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-const mockData: GoodDataType = {
-  id: 1,
-  title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-  price: 109.95,
-  description:
-    "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-  category: "men's clothing",
-  image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-  rating: { rate: 3.9, count: 120 },
-};
-
+// 특정한 페이지를 Static Page로 생성
+export function generateStaticParams() {
+  return [{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }];
+}
 export default async function Page({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  console.log(id);
+  // console.log(id);
+  let good: GoodDataType | null = null;
 
-  const { title, image, category, rating, description } = mockData;
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/products/${id}`,
+      { cache: "force-cache" }
+    );
+    good = await res.json();
+  } catch (error) {
+    console.log(error);
+  }
+
+  if (!good) {
+    // 404 띄우기
+    notFound();
+    // return <div>존재하지 않는 상품입니다.</div>;
+  }
+
+  const { title, image, category, rating, description } = good;
 
   return (
     <div className={styles.container}>
