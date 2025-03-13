@@ -5,8 +5,7 @@ export default async function RandomGoods() {
   let randomGoods: GoodDataType[] = [];
   try {
     const resRandom = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/products?limit=3`,
-      { next: { revalidate: 3 } }
+      `${process.env.NEXT_PUBLIC_API_URL}/products?limit=3`
     );
     randomGoods = await resRandom.json();
   } catch (error) {

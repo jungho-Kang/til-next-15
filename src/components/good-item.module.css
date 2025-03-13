@@ -6,6 +6,9 @@
   color: #333;
   text-decoration: none;
 }
+.container > img {
+  min-width: 80px;
+}
 .title {
   font-weight: bold;
 }
