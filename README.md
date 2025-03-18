@@ -290,3 +290,4 @@ export default async function Page({
 # Deploy 실행하기(Vercel)
 
 - `npm run build`로 오류 발견 시 제거 및 수정
+- git push 한번 더 하기
