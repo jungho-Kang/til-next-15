@@ -290,4 +290,20 @@ export default async function Page({
 # Deploy 실행하기(Vercel)
 
 - `npm run build`로 오류 발견 시 제거 및 수정
-- git push 한번 더 하기
+- Vercel에 Deploy(배포)하는법
+
+```
+1. https://vercel.com/ GitHub로 로그인
+2. Add New... 버튼 클릭 > Project 선택
+3. Adjust GitHub App Permissions → 버튼 클릭
+4. 원하는 repository 추가 후 import 버튼 클릭
+5. Environment Variables에 .env에 설정 해둔 변수 저장
+ex) Key : NEXT_PUBLIC_API_URL
+    Value : https://fakestoreapi.com
+6. 환경변수 설정 후 Deploy 버튼 클릭
+7. 배포한 프로젝트 클릭 후 Settings로 이동
+8. Environments > Production 버튼 클릭
+9. Branch Tracking에서 배포하고자 하는 브랜치명으로 변경 후 Save 버튼 클릭
+ex) 06-deploy
+10. README.md 수정 후 git add, commit, push를 한번 더 하면 배포 완료
+```
