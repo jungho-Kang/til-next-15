@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 export async function deleteAction(_: any, formData: FormData) {
   const goodId = formData.get("goodid") as string;
@@ -19,9 +19,10 @@ export async function deleteAction(_: any, formData: FormData) {
       }
     );
     const { id } = await res.json();
+    console.log(id);
 
     revalidatePath(`/good/${goodId}`);
-    revalidateTag(`good-${goodId}`);
+    // revalidateTag(`good-${goodId}`);
 
     return {
       status: true,

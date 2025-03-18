@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
-import { revalidatePath, revalidateTag } from "next/cache";
+import { revalidateTag } from "next/cache";
 
 // 액션의 상태도 전달하는 형태로 변경하기
 // export async function createReviewAction(state: any, formData: FormData) {
